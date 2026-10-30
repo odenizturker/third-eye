@@ -1,6 +1,6 @@
 ---
 name: grill-with-docs
-description: A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.
+description: A relentless interview to sharpen a plan or design, which also creates docs (glossary and decision files) as we go.
 disable-model-invocation: true
 ---
 
@@ -28,7 +28,7 @@ Each round the user answers reshapes the tree: settled decisions push the fronti
 
 Finding _facts_ is your job, never the user's. When a frontier question needs a fact from the environment (filesystem, tools, etc.), dispatch a sub-agent with a fresh context window to find it; don't ask the user for anything you could look up yourself. Don't block on it: a running exploration is an unsettled prerequisite, so only the questions downstream of it wait for the sub-agent to report; ask the rest of the frontier now. The _decisions_ are the user's: put each to them and wait.
 
-The session is done when the frontier is empty: every branch of the design tree visited, nothing left silently assumed. Do not act on it until the user confirms you have reached a shared understanding. Updating `GLOSSARY.md` and writing agreed ADRs during the session is part of the interview, not acting on it: do those as you go.
+The session is done when the frontier is empty: every branch of the design tree visited, nothing left silently assumed. Do not act on it until the user confirms you have reached a shared understanding. Updating `GLOSSARY.md` and writing agreed decision files during the session is part of the interview, not acting on it: do those as you go.
 
 ## Domain modeling
 
@@ -42,9 +42,10 @@ Most repos have a single context:
 /
 ├── GLOSSARY.md
 ├── docs/
-│   └── adr/
-│       ├── 0001-event-sourced-orders.md
-│       └── 0002-postgres-for-write-model.md
+│   └── architecture/
+│       ├── index.md
+│       ├── event-sourced-orders.md
+│       └── postgres-for-write-model.md
 └── src/
 ```
 
@@ -54,17 +55,15 @@ If a `GLOSSARY-MAP.md` exists at the root, the repo has multiple contexts. The m
 /
 ├── GLOSSARY-MAP.md
 ├── docs/
-│   └── adr/                          ← system-wide decisions
+│   └── architecture/                 ← system-wide decisions
 ├── src/
 │   ├── ordering/
-│   │   ├── GLOSSARY.md
-│   │   └── docs/adr/                 ← context-specific decisions
+│   │   └── GLOSSARY.md
 │   └── billing/
-│       ├── GLOSSARY.md
-│       └── docs/adr/
+│       └── GLOSSARY.md
 ```
 
-Create files lazily: only when you have something to write. If no `GLOSSARY.md` exists, create one when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+Create files lazily: only when you have something to write. If no `GLOSSARY.md` exists, create one when the first term is resolved. If no `docs/architecture/index.md` exists, create it when the first decision file is needed.
 
 ### During the session
 
@@ -90,16 +89,16 @@ When a term is resolved, update `GLOSSARY.md` right there. Don't batch these up:
 
 `GLOSSARY.md` should be totally devoid of implementation details. Do not treat `GLOSSARY.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
 
-#### Offer ADRs sparingly
+#### Offer decision files sparingly
 
-Only offer to create an ADR when all three are true:
+Only offer to create a decision file for a **system-wide** decision, and only when all three are true:
 
 1. **Hard to reverse**: the cost of changing your mind later is meaningful
 2. **Surprising without context**: a future reader will wonder "why did they do it this way?"
 3. **The result of a real trade-off**: there were genuine alternatives and you picked one for specific reasons
 
-If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
+If any of the three is missing, skip the decision file. A decision that concerns a single module is left for `to-architecture`, which records it in that module's doc. Use the format in [DECISION-FORMAT.md](./DECISION-FORMAT.md).
 
 ---
 
-_Credit: this skill is by [Matt Pocock](https://github.com/mattpocock), from [mattpocock/skills](https://github.com/mattpocock/skills) (commit `a496f55`). Upstream, `grill-with-docs` delegates to his [`grilling`](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) and [`domain-modeling`](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling) skills; here both are inlined, with small wording changes so they read as one skill. `ADR-FORMAT.md` and `GLOSSARY-FORMAT.md` are copied verbatim. Used under the MIT License: see [LICENSE](./LICENSE)._
+_Credit: this skill is by [Matt Pocock](https://github.com/mattpocock), from [mattpocock/skills](https://github.com/mattpocock/skills) (commit `a496f55`). Upstream, `grill-with-docs` delegates to his [`grilling`](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) and [`domain-modeling`](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling) skills; here both are inlined, with small wording changes so they read as one skill. Decisions are written as decision files under `docs/architecture/` instead of ADRs under `docs/adr/`, so `DECISION-FORMAT.md` is adapted from his `ADR-FORMAT.md`. `GLOSSARY-FORMAT.md` is copied verbatim. Used under the MIT License: see [LICENSE](./LICENSE)._

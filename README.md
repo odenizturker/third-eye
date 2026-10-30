@@ -6,8 +6,9 @@ My agentic harness: skills, commands and other configuration for Claude Code.
 
 | Skill | What it does |
 | --- | --- |
-| [grill-with-docs](skills/grill-with-docs/SKILL.md) | Interviews you about a plan or design in rounds until you share one understanding, writing the agreed terms to `GLOSSARY.md` and hard decisions to `docs/adr/` as it goes. |
+| [grill-with-docs](skills/grill-with-docs/SKILL.md) | Interviews you about a plan or design in rounds until you share one understanding, writing the agreed terms to `GLOSSARY.md` and hard system-wide decisions to `docs/architecture/` as it goes. |
 | [to-spec](skills/to-spec/SKILL.md) | Turns the decisions from a grilling session into feature specs under `docs/specs/<domain>/`: business rules with concrete examples and user stories, no technical decisions. Creates new specs or updates existing ones in place. |
+| [to-architecture](skills/to-architecture/SKILL.md) | Designs the architecture for draft or deprecated specs, or for an architecture-only change: deep modules, interfaces, seams, dependencies and rule ownership, written as living target-state docs under `docs/architecture/`. |
 
 ## Installation
 
@@ -46,6 +47,6 @@ Bump `version` in `.claude-plugin/plugin.json` with every change you want plugin
 
 ## Credits and license
 
-`grill-with-docs` is adapted from [Matt Pocock](https://github.com/mattpocock)'s [skills](https://github.com/mattpocock/skills) (MIT). Adapted skills credit their author at the end of their `SKILL.md` and carry the upstream license in their own folder, so the notice travels with the skill when it is copied.
+`grill-with-docs`, and the design rules in `to-architecture`, are adapted from [Matt Pocock](https://github.com/mattpocock)'s [skills](https://github.com/mattpocock/skills) (MIT). Adapted skills credit their author at the end of their `SKILL.md` and carry the upstream license in their own folder, so the notice travels with the skill when it is copied.
 
 Everything else is [MIT](LICENSE) licensed.

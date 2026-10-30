@@ -17,7 +17,7 @@ The exact shape of every file this skill writes is in [FORMAT.md](FORMAT.md). Re
 ## Preconditions
 
 - The conversation must contain resolved decisions. If there was no grilling session in this conversation, do not write anything: tell the user to run `grill-with-docs` first.
-- Read `GLOSSARY.md` (or `GLOSSARY-MAP.md` and the glossaries it points to) and the ADRs in `docs/adr/`, if they exist. Use glossary terms everywhere. Never create or edit the glossary; that is `grill-with-docs`'s job.
+- Read `GLOSSARY.md` (or `GLOSSARY-MAP.md` and the glossaries it points to) and the decision files listed in `docs/architecture/index.md`, if they exist. Use glossary terms everywhere. Never create or edit the glossary; that is `grill-with-docs`'s job.
 
 ## Process
 
@@ -68,7 +68,7 @@ Only after the user confirms:
 3. For an approved rename, update the rule, every user story that references it, and every test title containing the old reference.
 4. Create or update the index files.
 
-Do not touch anything else: no tickets, architecture documents, ADRs, glossary or code. The only code change this skill ever makes is renaming references in test titles after an approved rename.
+Do not touch anything else: no tickets, architecture documents, decision files, glossary or code. The only code change this skill ever makes is renaming references in test titles after an approved rename.
 
 ### 5. Report
 
