@@ -43,6 +43,8 @@ Use `~/.claude/skills/` for every project, or `<project>/.claude/skills/` for on
 
 Bump `version` in `.claude-plugin/plugin.json` with every change you want plugin users to receive; installed copies only update when the version changes.
 
-## Credits
+## Credits and license
 
 Some skills are adapted from other people's work. Each one credits its author at the end of its `SKILL.md` and carries the upstream license in its own folder, so the notice travels with the skill when it is copied.
+
+Everything else is [MIT](LICENSE) licensed.
