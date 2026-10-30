@@ -1,0 +1,16 @@
+{
+  "name": "third-eye",
+  "version": "0.1.0",
+  "description": "Özgür Deniz Türker's agentic harness: skills, commands and other configuration for Claude Code.",
+  "author": {
+    "name": "Özgür Deniz Türker",
+    "url": "https://github.com/odenizturker"
+  },
+  "homepage": "https://github.com/odenizturker/third-eye",
+  "repository": "https://github.com/odenizturker/third-eye",
+  "keywords": [
+    "skills",
+    "grilling",
+    "domain-modeling"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "odenizturker",
+  "owner": {
+    "name": "Özgür Deniz Türker",
+    "url": "https://github.com/odenizturker"
+  },
+  "description": "Özgür Deniz Türker's Claude Code plugins.",
+  "plugins": [
+    {
+      "name": "third-eye",
+      "source": "./",
+      "description": "Özgür Deniz Türker's agentic harness: skills, commands and other configuration for Claude Code.",
+      "category": "productivity",
+      "keywords": [
+        "skills",
+        "grilling",
+        "domain-modeling"
+      ]
+    }
+  ]
+}
