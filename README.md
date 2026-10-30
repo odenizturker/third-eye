@@ -2,6 +2,28 @@
 
 My agentic harness: skills, commands and other configuration for Claude Code.
 
+## Flow
+
+Solid arrows are the steps you run, in order. Dotted arrows are helper skills a step loads, labelled with when it loads them.
+
+```mermaid
+flowchart TD
+    grill[grill-with-docs] --> spec[to-spec] --> arch[to-architecture]
+    survey[improve-codebase-architecture] -->|candidate picked| arch
+
+    grill -.->|always| grilling([grilling])
+    spec -.->|decisions left gaps| grilling
+    arch -.->|always| grilling
+    grilling -.->|fact outside the repo| research([research])
+    arch -.->|fact outside the repo| research
+    arch -.->|always| design([codebase-design])
+    survey -.->|always| design
+    arch -.->|an interface has several real shapes| twice(["codebase-design:<br/>design it twice"])
+
+    classDef helper stroke-dasharray: 4 4
+    class grilling,research,design,twice helper
+```
+
 ## Skills
 
 | Skill | What it does |
