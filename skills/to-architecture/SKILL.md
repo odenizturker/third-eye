@@ -22,7 +22,7 @@ Division of labour:
 | Ticket skill | Order, vertical slices, blockers, prefactoring (from the gap between docs and code) | Anything architectural. If it finds a gap, it stops and asks |
 | Implementer | Everything behind an interface | Interfaces, seams, data ownership |
 
-Read [DESIGN-RULES.md](DESIGN-RULES.md) before designing and [FORMAT.md](FORMAT.md) before writing.
+Call the Skill tool with `codebase-design` before designing, and read [FORMAT.md](FORMAT.md) before writing.
 
 ## Process
 
@@ -41,11 +41,11 @@ Read [DESIGN-RULES.md](DESIGN-RULES.md) before designing and [FORMAT.md](FORMAT.
    - for every module doc with `lifecycle: implemented` in the touched domains, whether the code contradicts its interface, seam or rule ownership;
    - candidates for duplication, modules that should merge, or a missing abstraction, across the touched domains and the specs and modules next to them.
 
-Facts are yours to find, never the user's. Use sub-agents for any further lookups so the main context stays small.
+Facts are yours to find, never the user's. Use sub-agents for any further lookups so the main context stays small, and the `research` skill for facts outside the repo (a third-party API, a library, a hosted service).
 
 ### 3. Grill the design
 
-Walk the design tree with the user in **rounds**. Each round asks every question whose prerequisites are already settled, numbered, each with your recommended answer, worded so that "yes" accepts it. Recompute after every answer. The decisions are the user's; wait for them.
+Call the Skill tool with `grilling` and walk the design tree with the user.
 
 The tree covers, for the work in scope:
 
@@ -57,7 +57,7 @@ The tree covers, for the work in scope:
 - **Data:** which module owns which entities.
 - **Left to implementation:** what is deliberately delegated.
 
-When there are genuinely different ways to shape something, lay out the two or three real alternatives in their own question, grounded in what the code does today, say what each trades off, and recommend one.
+When there are genuinely different ways to shape something, lay out the two or three real alternatives in their own question, grounded in what the code does today, say what each trades off, and recommend one. When the fork is a module's interface, design it twice instead, following DESIGN-IT-TWICE.md from the `codebase-design` skill.
 
 Also put to the user, each as its own item:
 
@@ -119,4 +119,4 @@ List the files written, the decisions made outside the feature, the contradictio
 - Write only what the code cannot tell a reader: responsibility, contracts, seams, ownership, and reasons that would surprise. Never file paths, never function bodies.
 - Every module doc must survive a full rewrite of its implementation unchanged. If a sentence would not, it describes the implementation, not the architecture.
 - Mention a rejected alternative only when someone would otherwise propose it again.
-- Use the glossary's domain terms for names, and the vocabulary in DESIGN-RULES.md for structure.
+- Use the glossary's domain terms for names, and the `codebase-design` vocabulary for structure.

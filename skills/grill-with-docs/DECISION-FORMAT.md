@@ -21,7 +21,7 @@ verified:
 {1-3 paragraphs: what's the context, what did we decide, and why.}
 ```
 
-That's it. A decision file can be a single paragraph. The value is in recording *that* a decision was made and *why*, not in filling out sections. Mention a rejected alternative only when someone would otherwise propose it again: one line, what and why not.
+That's it. A decision file can be a single paragraph. When the why rests on a research file under `docs/research/`, link it in that sentence. The value is in recording *that* a decision was made and *why*, not in filling out sections. Mention a rejected alternative only when someone would otherwise propose it again: one line, what and why not.
 
 ## Frontmatter
 

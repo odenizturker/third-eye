@@ -89,7 +89,7 @@ All six sections appear, in this order. A section with nothing to say holds a si
 
 - **Purpose:** the module's responsibility in one or two sentences, plus what callers are spared. If the reason the module exists would surprise a reader of the code, say it here in one or two sentences.
 - **Interface:** the external interface only. Types and signatures in the project's language, followed by every fact a caller must know: invariants, ordering constraints, error modes, performance expectations. No internal functions, no bodies.
-- **Seam and dependencies:** where the module is tested, and each dependency with its category from DESIGN-RULES.md and its adapters (production and test).
+- **Seam and dependencies:** where the module is tested, and each dependency with its category from the `codebase-design` skill and its adapters (production and test).
 - **Data:** the entities the module owns, at a logical level (names, key fields, relationships). Entities owned elsewhere are linked, not described. No table definitions or migrations.
 - **Rules owned:** every rule this module owns, as `<domain>.<rule_name>`, with the seam its examples are tested at. Every rule in `docs/specs/` that is not retired and not in a deprecated spec is owned by exactly one module.
 - **Left to implementation:** decisions deliberately delegated to the implementer. Anything not listed here and not decided above is a gap.
@@ -117,7 +117,7 @@ verified:
 Orders and Invoices are deployed and changed by different people, so a module in one domain never calls a module in another directly; it publishes a domain event and the other domain reacts. Synchronous calls were rejected because a failing Invoices deploy would block order placement.
 ```
 
-A decision file is one to three paragraphs: the context, the decision, and why. Write one only for a **system-wide** decision that passes all three gates:
+A decision file is one to three paragraphs: the context, the decision, and why. When the why rests on a research file under `docs/research/`, link it in that sentence. Write one only for a **system-wide** decision that passes all three gates:
 
 1. **Hard to reverse:** changing your mind later has a real cost.
 2. **Surprising without context:** a future reader would wonder why it was done this way.

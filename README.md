@@ -9,6 +9,15 @@ My agentic harness: skills, commands and other configuration for Claude Code.
 | [grill-with-docs](skills/grill-with-docs/SKILL.md) | Interviews you about a plan or design in rounds until you share one understanding, writing the agreed terms to `GLOSSARY.md` and hard system-wide decisions to `docs/architecture/` as it goes. |
 | [to-spec](skills/to-spec/SKILL.md) | Turns the decisions from a grilling session into feature specs under `docs/specs/<domain>/`: business rules with concrete examples and user stories, no technical decisions. Creates new specs or updates existing ones in place. |
 | [to-architecture](skills/to-architecture/SKILL.md) | Designs the architecture for draft or deprecated specs, or for an architecture-only change: deep modules, interfaces, seams, dependencies and rule ownership, written as living target-state docs under `docs/architecture/`. |
+| [improve-codebase-architecture](skills/improve-codebase-architecture/SKILL.md) | Surveys the codebase for deepening opportunities and presents them as a visual HTML report. The candidate you pick goes on to an architecture-only `to-architecture` session. |
+
+The skills above are the ones you run. The skills below are loaded by the model when a task needs them (you can run them too):
+
+| Skill | What it does |
+| --- | --- |
+| [grilling](skills/grilling/SKILL.md) | The interview itself: rounds of numbered questions, each with a recommended answer, until every branch of the design tree is resolved. Used by `grill-with-docs`, `to-spec` and `to-architecture`. |
+| [codebase-design](skills/codebase-design/SKILL.md) | The deep-module vocabulary and design rules, plus "design it twice": parallel sub-agents that design an interface several ways before you choose. |
+| [research](skills/research/SKILL.md) | Answers a question about something outside the repo from primary sources, in a background agent, and saves the cited findings under `docs/research/`. |
 
 ## Installation
 
@@ -47,6 +56,6 @@ Bump `version` in `.claude-plugin/plugin.json` with every change you want plugin
 
 ## Credits and license
 
-`grill-with-docs`, and the design rules in `to-architecture`, are adapted from [Matt Pocock](https://github.com/mattpocock)'s [skills](https://github.com/mattpocock/skills) (MIT). Adapted skills credit their author at the end of their `SKILL.md` and carry the upstream license in their own folder, so the notice travels with the skill when it is copied.
+`grill-with-docs`, `grilling`, `codebase-design`, `research` and `improve-codebase-architecture` are adapted from [Matt Pocock](https://github.com/mattpocock)'s [skills](https://github.com/mattpocock/skills) (MIT). Adapted skills credit their author at the end of their `SKILL.md` and carry the upstream license in their own folder, so the notice travels with the skill when it is copied.
 
 Everything else is [MIT](LICENSE) licensed.

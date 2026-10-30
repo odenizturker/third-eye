@@ -55,7 +55,7 @@ Send a single message containing:
 - New domain folders and rule renames, each as an item needing approval.
 - The tests that reference each `changed`, retired or renamed rule.
 - A warning for every spec whose `lifecycle` is `architected` or `ticketed`: work based on it is in flight, these rules changed, and existing tickets may be out of date. Tickets are not touched by this skill.
-- The gaps, as numbered questions, each with your recommended answer, worded so that "yes" accepts the recommendation.
+- The gaps, as one round in the format of the `grilling` skill (call the Skill tool with `grilling`).
 
 Then wait. If the user defers a gap, leave that rule out of the spec entirely and say explicitly which rules were left out. Ask another round only if the answers open new gaps.
 

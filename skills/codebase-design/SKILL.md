@@ -1,6 +1,9 @@
-# Design rules
+---
+name: codebase-design
+description: Shared vocabulary and rules for designing deep modules: interfaces, seams, adapters, dependency categories, testability. Use when designing or reshaping a module's interface, deciding where a seam goes, looking for deepening opportunities, or when another skill needs the deep-module vocabulary.
+---
 
-Adapted from the `codebase-design` skill in [mattpocock/skills](https://github.com/mattpocock/skills) (MIT, © 2026 Matt Pocock), which builds on John Ousterhout's *A Philosophy of Software Design* and Michael Feathers' *Working Effectively with Legacy Code*.
+# Codebase design
 
 The goal is **deep modules**: a lot of behaviour behind a small interface, placed at a clean seam, testable through that interface. That gives callers leverage, maintainers locality, and agents a codebase they can navigate and verify.
 
@@ -87,3 +90,11 @@ Classify every dependency of a module. The category decides how the module is te
 - Tests must survive internal refactors. A test that has to change when the implementation changes is testing past the interface.
 - When shallow modules are merged into a deep one, write tests at the new interface and delete the old tests on the shallow parts. Do not keep both layers.
 - A spec rule's examples become tests at the seam recorded in the owning module's Rules owned table, titled with `[<domain>.<rule_name>]`.
+
+## Design it twice
+
+When a module's interface could take genuinely different shapes, design it several ways in parallel before choosing: see [DESIGN-IT-TWICE.md](DESIGN-IT-TWICE.md).
+
+---
+
+_Credit: adapted from [Matt Pocock](https://github.com/mattpocock)'s [`codebase-design`](https://github.com/mattpocock/skills/tree/main/skills/engineering/codebase-design) skill in [mattpocock/skills](https://github.com/mattpocock/skills) (commit `a496f55`), which builds on John Ousterhout's *A Philosophy of Software Design* and Michael Feathers' *Working Effectively with Legacy Code*. Used under the MIT License: see [LICENSE](./LICENSE)._

@@ -4,31 +4,9 @@ description: A relentless interview to sharpen a plan or design, which also crea
 disable-model-invocation: true
 ---
 
-Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it. As you go, build the project's domain model and write it down the moment terms and decisions crystallise: see **Domain modeling** below.
+Call the Skill tool with `grilling` and run its interview. As you go, build the project's domain model and write it down the moment terms and decisions crystallise: see **Domain modeling** below.
 
-Work the tree in **rounds**. The **frontier** is every decision whose prerequisites are already settled: the questions you can ask _now_ without guessing at answers you haven't heard yet. Ask the whole frontier in one round: number each question and give your recommended answer. Then wait for the user's answers before the next round.
-
-Format a round like so:
-
-```
-❓ **Q1** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
-
-➡️ <your recommended answer>
-
----
-
-❓ **Q2** - **<question title>**: <question body, might be multiple paragraphs, including multiple choices>
-
-➡️ <your recommended answer>
-```
-
-Word each question so "yes" accepts your recommended answer.
-
-Each round the user answers reshapes the tree: settled decisions push the frontier outward and unblock questions that depended on them. Recompute the frontier and ask the next round. A question whose answer depends on another question still open in this round belongs to a _later_ round, not this one.
-
-Finding _facts_ is your job, never the user's. When a frontier question needs a fact from the environment (filesystem, tools, etc.), dispatch a sub-agent with a fresh context window to find it; don't ask the user for anything you could look up yourself. Don't block on it: a running exploration is an unsettled prerequisite, so only the questions downstream of it wait for the sub-agent to report; ask the rest of the frontier now. The _decisions_ are the user's: put each to them and wait.
-
-The session is done when the frontier is empty: every branch of the design tree visited, nothing left silently assumed. Do not act on it until the user confirms you have reached a shared understanding. Updating `GLOSSARY.md` and writing agreed decision files during the session is part of the interview, not acting on it: do those as you go.
+Updating `GLOSSARY.md` and writing agreed decision files during the session is part of the interview, not acting on it: do those as you go.
 
 ## Domain modeling
 
@@ -101,4 +79,4 @@ If any of the three is missing, skip the decision file. A decision that concerns
 
 ---
 
-_Credit: this skill is by [Matt Pocock](https://github.com/mattpocock), from [mattpocock/skills](https://github.com/mattpocock/skills) (commit `a496f55`). Upstream, `grill-with-docs` delegates to his [`grilling`](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) and [`domain-modeling`](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling) skills; here both are inlined, with small wording changes so they read as one skill. Decisions are written as decision files under `docs/architecture/` instead of ADRs under `docs/adr/`, so `DECISION-FORMAT.md` is adapted from his `ADR-FORMAT.md`. `GLOSSARY-FORMAT.md` is copied verbatim. Used under the MIT License: see [LICENSE](./LICENSE)._
+_Credit: this skill is by [Matt Pocock](https://github.com/mattpocock), from [mattpocock/skills](https://github.com/mattpocock/skills) (commit `a496f55`). Upstream, `grill-with-docs` delegates to his [`grilling`](https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling) and [`domain-modeling`](https://github.com/mattpocock/skills/tree/main/skills/engineering/domain-modeling) skills; here it delegates to this repo's `grilling` skill and inlines `domain-modeling`, with small wording changes so it reads as one skill. Decisions are written as decision files under `docs/architecture/` instead of ADRs under `docs/adr/`, so `DECISION-FORMAT.md` is adapted from his `ADR-FORMAT.md`. `GLOSSARY-FORMAT.md` is copied verbatim. Used under the MIT License: see [LICENSE](./LICENSE)._
