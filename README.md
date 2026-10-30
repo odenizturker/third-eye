@@ -7,6 +7,7 @@ My agentic harness: skills, commands and other configuration for Claude Code.
 | Skill | What it does |
 | --- | --- |
 | [grill-with-docs](skills/grill-with-docs/SKILL.md) | Interviews you about a plan or design in rounds until you share one understanding, writing the agreed terms to `GLOSSARY.md` and hard decisions to `docs/adr/` as it goes. |
+| [to-spec](skills/to-spec/SKILL.md) | Turns the decisions from a grilling session into feature specs under `docs/specs/<domain>/`: business rules with concrete examples and user stories, no technical decisions. Creates new specs or updates existing ones in place. |
 
 ## Installation
 
