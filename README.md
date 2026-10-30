@@ -46,6 +46,6 @@ Bump `version` in `.claude-plugin/plugin.json` with every change you want plugin
 
 ## Credits and license
 
-Some skills are adapted from other people's work. Each one credits its author at the end of its `SKILL.md` and carries the upstream license in its own folder, so the notice travels with the skill when it is copied.
+`grill-with-docs` is adapted from [Matt Pocock](https://github.com/mattpocock)'s [skills](https://github.com/mattpocock/skills) (MIT). Adapted skills credit their author at the end of their `SKILL.md` and carry the upstream license in their own folder, so the notice travels with the skill when it is copied.
 
 Everything else is [MIT](LICENSE) licensed.
