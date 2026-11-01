@@ -48,10 +48,10 @@ Pick one route per agent: installing more than one gives you every skill twice.
 ### Claude Code plugin
 
 ```sh
-claude plugin install third-eye --marketplace odenizturker/third-eye
+claude plugin install third-eye --marketplace odenizturker/third-eye --scope project
 ```
 
-Or, inside a session, `/plugin install third-eye --marketplace odenizturker/third-eye`. This adds the `third-eye` marketplace and installs the `third-eye` plugin. Skills are namespaced by the plugin, so you run `/third-eye:grill-with-docs`. Update with `claude plugin update third-eye`.
+Run it from the project's root. This adds the `third-eye` marketplace and installs the `third-eye` plugin for that project only, recording it in `.claude/settings.json` so it can be committed with the repo. Drop `--scope project` to install it for every project instead. Skills are namespaced by the plugin, so you run `/third-eye:grill-with-docs`. Update with `claude plugin update third-eye`.
 
 ### skills.sh (any agent)
 
