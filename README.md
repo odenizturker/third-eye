@@ -51,7 +51,7 @@ Pick one route per agent: installing more than one gives you every skill twice.
 claude plugin install third-eye --marketplace odenizturker/third-eye
 ```
 
-Or, inside a session, `/plugin install third-eye --marketplace odenizturker/third-eye`. This adds the `odenizturker` marketplace and installs the `third-eye` plugin. Skills are namespaced by the plugin, so you run `/third-eye:grill-with-docs`. Update with `claude plugin update third-eye`.
+Or, inside a session, `/plugin install third-eye --marketplace odenizturker/third-eye`. This adds the `third-eye` marketplace and installs the `third-eye` plugin. Skills are namespaced by the plugin, so you run `/third-eye:grill-with-docs`. Update with `claude plugin update third-eye`.
 
 ### skills.sh (any agent)
 
